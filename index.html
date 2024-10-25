@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My MP3 Files Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .audio-player {
+            margin-bottom: 20px;
+        }
+        .audio-player h3 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My MP3 Files Showcase</h1>
+    <div id="audio-list"></div>
+
+    <script>
+        // List of your MP3 files
+        const audioFiles = [
+            { name: 'Track 1', path: 'audio/file1.mp3' },
+            { name: 'Track 2', path: 'audio/file2.mp3' },
+            // Add more of your files here
+        ];
+
+        const audioList = document.getElementById('audio-list');
+
+        audioFiles.forEach(function(file) {
+            const playerDiv = document.createElement('div');
+            playerDiv.className = 'audio-player';
+
+            const title = document.createElement('h3');
+            title.textContent = file.name;
+
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.src = file.path;
+
+            playerDiv.appendChild(title);
+            playerDiv.appendChild(audio);
+            audioList.appendChild(playerDiv);
+        });
+    </script>
+</body>
+</html>
+
